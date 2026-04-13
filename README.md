@@ -110,9 +110,7 @@ URL to download the runner from
 #### Default value
 
 ```YAML
-github_runner_download: https://github.com/actions/runner/releases/download/v{{ 
-  github_runner_version }}/actions-runner-{{ github_runner_system }}-{{ 
-  github_runner_arch }}-{{ github_runner_version }}.tar.gz
+github_runner_download: https://github.com/actions/runner/releases/download/v{{ github_runner_version }}/actions-runner-{{ github_runner_system }}-{{ github_runner_arch }}-{{ github_runner_version }}.tar.gz
 ```
 
 ### github_runner_enterprise
