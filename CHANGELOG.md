@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.26.0](https://github.com/rolehippie/github-runner/compare/v2.25.0...v2.26.0) (2026-09-07)
+
+### Features
+
+* add separate requirements for molecule run ([f5b93c9](https://github.com/rolehippie/github-runner/commit/f5b93c9680bf8b79eb096b67f3462afb679f607c))
+* use new required facts as attributes ([268bb2c](https://github.com/rolehippie/github-runner/commit/268bb2c8e24e493520a6f37e986db2a0f5befbaa))
+
+### Dependencies
+
+* **patch:** update dependency pipx:ansible-core to v2.21.3 ([1711500](https://github.com/rolehippie/github-runner/commit/171150037a8e88ded12a799d9ec754f611a25b50))
+
 ## [2.25.0](https://github.com/rolehippie/github-runner/compare/v2.24.0...v2.25.0) (2026-07-27)
 
 ## [2.24.0](https://github.com/rolehippie/github-runner/compare/v2.23.0...v2.24.0) (2026-06-15)
