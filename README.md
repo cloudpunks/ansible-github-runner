@@ -183,7 +183,7 @@ Name of the runner
 #### Default value
 
 ```YAML
-github_runner_name: '{{ ansible_facts['hostname'] }}'
+github_runner_name: "{{ ansible_facts['hostname'] }}"
 ```
 
 ### github_runner_org
