@@ -70,7 +70,7 @@ Architecture of the system
 #### Default value
 
 ```YAML
-github_runner_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'x64' }}"
+github_runner_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'x64' }}"
 ```
 
 ### github_runner_args
@@ -183,7 +183,7 @@ Name of the runner
 #### Default value
 
 ```YAML
-github_runner_name: '{{ ansible_hostname }}'
+github_runner_name: '{{ ansible_facts['hostname'] }}'
 ```
 
 ### github_runner_org
@@ -233,7 +233,7 @@ Operating system for the runner
 #### Default value
 
 ```YAML
-github_runner_system: "{{ 'osx' if ansible_system == 'Darwin' else 'linux' }}"
+github_runner_system: "{{ 'osx' if ansible_facts['system'] == 'Darwin' else 'linux' }}"
 ```
 
 ### github_runner_token

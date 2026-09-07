@@ -18,10 +18,10 @@ github_runner_groups:
 github_runner_version: 2.336.0
 
 # @var github_runner_system:description: Operating system for the runner
-github_runner_system: "{{ 'osx' if ansible_system == 'Darwin' else 'linux' }}"
+github_runner_system: "{{ 'osx' if ansible_facts['system'] == 'Darwin' else 'linux' }}"
 
 # @var github_runner_arch:description: Architecture of the system
-github_runner_arch: "{{ 'arm64' if ansible_architecture == 'aarch64' else 'x64' }}"
+github_runner_arch: "{{ 'arm64' if ansible_facts['architecture'] in ['aarch64', 'arm64'] else 'x64' }}"
 
 # @var github_runner_download:description: URL to download the runner from
 github_runner_download: "https://github.com/actions/runner/releases/download/v{{ github_runner_version }}/actions-runner-{{ github_runner_system }}-{{ github_runner_arch }}-{{ github_runner_version }}.tar.gz"
@@ -51,7 +51,7 @@ github_runner_enterprise:
 github_runner_envvars:
 
 # @var github_runner_name:description: Name of the runner
-github_runner_name: "{{ ansible_hostname }}"
+github_runner_name: "{{ ansible_facts['hostname'] }}"
 
 # @var github_runner_labels:description: Labels for the runner
 github_runner_labels:

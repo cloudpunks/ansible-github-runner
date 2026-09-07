@@ -58,7 +58,7 @@
 
     - name: Fetch service facts
       ansible.builtin.service_facts:
-      when: ansible_system == "Linux"
+      when: ansible_facts['system'] == "Linux"
       tags:
         - github-runner
 
@@ -216,7 +216,7 @@
 
 - name: Install runner service
   changed_when: true
-  become: "{{ false if ansible_system == 'Darwin' else true }}"
+  become: "{{ false if ansible_facts['system'] == 'Darwin' else true }}"
   when:
     - not github_runner_service_file.stat.exists
   ansible.builtin.command:
@@ -242,7 +242,7 @@
   no_log: "{{ github_runner_hide_sensitive_logs | bool }}"
   ignore_errors: "{{ ansible_check_mode }}"
   changed_when: true
-  become: "{{ false if ansible_system == 'Darwin' else true }}"
+  become: "{{ false if ansible_facts['system'] == 'Darwin' else true }}"
   when:
     - github_runner_state == "started"
     - github_runner_svcname in ansible_facts.services.keys()
@@ -257,7 +257,7 @@
   no_log: "{{ github_runner_hide_sensitive_logs | bool }}"
   ignore_errors: "{{ ansible_check_mode }}"
   changed_when: true
-  become: "{{ false if ansible_system == 'Darwin' else true }}"
+  become: "{{ false if ansible_facts['system'] == 'Darwin' else true }}"
   when:
     - github_runner_state == "stopped"
     - github_runner_svcname in ansible_facts.services.keys()
@@ -272,7 +272,7 @@
   no_log: "{{ github_runner_hide_sensitive_logs | bool }}"
   ignore_errors: "{{ ansible_check_mode }}"
   changed_when: true
-  become: "{{ false if ansible_system == 'Darwin' else true }}"
+  become: "{{ false if ansible_facts['system'] == 'Darwin' else true }}"
   when:
     - github_runner_state == "started"
     - github_runner_version not in github_runner_installed.stdout
